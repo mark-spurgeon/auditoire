@@ -1,0 +1,350 @@
+.site-header {
+  background: white;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-color: rgba(40,40,40,0.05);
+}
+
+
+/*
+  Header top
+*/
+.site-header-top {
+  height: 36pt;
+  margin-top: 12pt;
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-around;
+
+  border-style: solid;
+  border-width: 0;
+  border-top-width: 1px;
+  border-color: rgba(40,40,40,0.05);
+  color: black;
+  background: transparent;
+}
+
+.site-header-links-social {
+  flex: 1;
+  display: flex;
+  color: inherit;
+}
+.site-header-links-social ul {
+  flex: 1;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  
+}
+.site-header-links-social ul li {
+  width: 36pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 21pt;
+  line-height: 21pt;
+}
+.site-header-links-social ul li a {
+  font-size: inherit;
+  line-height: inherit;
+  text-align: center;
+  color: inherit;
+}
+.site-header-links-social ul li a:hover {
+  opacity: 1;
+}
+.site-header-top-middle {
+  flex: 1;
+  border-style: solid;
+  border-width: 0;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-color: rgba(40,40,40,0.02);
+}
+.site-header-links-about {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.site-header-links-about ul {
+  flex: 1;
+  height: 36pt;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+.site-header-links-about ul li {
+  flex: 1;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 10pt;
+  line-height: 10pt;
+}
+.site-header-links-about ul li a {
+  font-size: inherit;
+  line-height: inherit;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+}
+
+.site-header-links-about ul li a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/*
+  Brand
+*/
+
+.site-header-branding-container {
+  background: transparent;
+  height: 156pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.site-header-branding {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.custom-logo-link {
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
+.custom-logo-link img {
+  flex: 1;
+  width: 100%;
+}
+.site-description {
+  flex: 1;
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 12pt;
+  font-size: 12pt;
+  line-height: 12pt;
+  letter-spacing: 0.04rem;
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+  font-weight: 500;
+}
+.site-description a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header-nav-button {
+  display: none;
+  width: 44pt;
+  height: 40pt;
+  background: rgb(253, 253, 253);
+  border-style: solid;
+  border-width: 0;
+
+} 
+
+
+
+/*
+  Header (small)
+*/
+.site-header.journal .site-header-top {
+  padding: 0;
+  margin-top: 0;
+}
+.site-header-logo {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.site-header-logo img {
+  flex:0;
+  height: 20pt;
+  width: auto;
+  margin-left: 2pt;
+}
+.site-header.journal .site-header-links-social ul li {
+  width: 28pt;
+  font-size: 18pt;
+  line-height: 18pt;
+}
+.site-header.journal .site-header-links-social ul li a {
+}
+.site-header.journal .site-header-links-social ul li.site-header-download {
+  width: auto;
+  flex: 1;
+  font-size: 10pt;
+  line-height: 10pt;
+  background: rgb(87, 102, 238);
+  color: white;
+  border-radius: 4pt;
+  margin: 4pt;
+}
+.site-header.journal .site-header-links-social ul li.site-header-download a {
+  text-decoration: none;
+}
+/*
+ Categories
+*/
+
+.site-header-categories {
+  border-style: solid;
+  border-width: 0;
+  border-top-width: 1px;
+  border-bottom-width: 0px;
+  border-top-color: rgba(50,50,50, 0.3);
+  border-bottom-color: rgba(50,50,50, 0.09);
+
+  background: white;
+  padding-top: 2pt;
+  height: 36pt;
+  overflow: hidden;
+  transition: height .3s;
+  display: flex; 
+  flex: 1;
+}
+
+.site-header-categories ul {
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  list-style-type: none;
+  display: flex;
+}
+
+.site-header-categories ul li {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-style: solid;
+  border-width: 0;
+  border-top-width: 4px;
+  margin-left: 0px;
+  text-align: center;
+  color: #575AC2;
+  background-color: white;
+
+  transition: background-color .2s;
+}
+.site-header-categories ul li:nth-child(1) {
+  margin-left: 0;
+}
+
+
+.site-header-categories ul li a {
+  line-height: 14pt;
+  font-size: 14pt;
+  letter-spacing: 0.09rem;
+  font-family: "HKGroteskBold";
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-header-categories ul li:hover {
+  background: rgba(253,253,253);
+}
+
+
+.site-header-banner {
+  max-height: 250pt;
+  overflow: hidden;
+  width: 100%;
+}
+.site-header-banner img {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+
+@media screen and (max-width: 800px) {
+  .site-header-top {
+    margin-top: 0;
+  }
+  .site-header-links-about {
+    display: none;
+  }
+  .site-header-branding-container {
+    flex-direction: row;
+    padding: 4pt;
+    height: 48pt;
+  }
+  .site-header-branding {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .site-header-branding a {
+    flex-direction: column;
+    justify-content: center;
+    display: block;
+    max-height: 32pt;
+    padding: 0;
+    margin: 0;
+    flex: 0;
+  }
+  .site-header-branding img {
+    flex: 0;
+    max-height: 32pt;
+    width: auto;
+  }
+  .site-description {
+    display: none;
+  }
+  .site-header-nav-button {
+    display: block;
+  }
+
+  .site-header-categories {
+    height:0;
+    border-bottom-width: 3px;
+  }
+  .site-header-categories ul {
+    flex-direction: column;
+  }
+  .site-header-categories ul li {
+    height: auto;
+    border-top-width: 0;
+    border-left-width: 3px;
+    text-align: left;
+    padding-left: 6pt;
+    margin-bottom: 1px;
+  }
+
+  .site-header-categories.menu {
+    height:156pt;
+    padding-bottom: 1pt;
+    background-color: rgb(250,250,250);
+  }
+
+  .site-header.journal .site-header-top-middle {
+    display: none;
+  }
+}

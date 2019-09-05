@@ -1,0 +1,136 @@
+.content-header {
+  margin:0;
+  padding:0;
+}
+
+.content-title {
+  margin: 0;
+  padding: 0;
+  font-family: "HKGroteskBold";
+  font-size: 24pt;
+  line-height: 24pt;
+  padding-left: 8pt;
+}
+
+.content-meta {
+  font-family: "Libre Baskerville", serif;
+  font-size: 12pt;
+  padding: 0;
+  margin: 0;
+  padding-top: 6pt;
+  padding-bottom: 6pt;
+  padding-left: 8pt;
+}
+.content-meta a {
+  color: inherit;
+}
+
+.content-body {
+  font-family: "Libre Baskerville", serif;
+  font-size: 12pt;
+  text-align: justify;
+  max-width: 37em;
+  padding-left: 10pt;
+}
+
+.content-body p {
+  font-size: 12pt;
+  line-height: 1.6rem;
+  padding-top: 0pt;
+  padding-bottom: 12pt;
+  margin: 0;
+}
+
+.content-body h2 {
+  font-size: 14pt;
+  padding-top: 0pt;
+  padding-bottom: 12pt;
+  margin:0;
+}
+.content-body ul {
+  margin : 0;
+  padding-bottom: 12pt;
+}
+
+.content-body ol {
+  margin : 0;
+  padding-bottom: 12pt;
+}
+.content-body blockquote {
+  border-style: solid;
+  border-width: 0;
+  border-left-width: 2px;
+  margin: 0;
+  padding-left: 12pt;
+  margin-bottom: 12pt;
+  border-color: #575AC2;
+}
+.content-body blockquote p {
+  font-family: "HKGroteskBold";
+  font-size: 14pt;
+  letter-spacing: 0.03rem;
+}
+.content-body cite {
+  color: #575AC2;
+  margin: 0;
+}
+
+
+
+.comments-area {
+  width: 100%;
+  max-width: 34em;;
+  padding-left: 10pt;
+  font-family: "HKGroteskRegular", serif;
+}
+.comments-area .comment-reply-title {
+  padding: 0;
+  font-family: "HKGroteskBold";
+}
+.comments-area .logged-in-as {
+  padding: 4pt;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3pt;
+  border-color: rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 8px -1px rgba(0,0,0,0.2);
+  margin-bottom: 6pt;
+  margin-top: 6pt;
+}
+
+.comments-area .form-submit {
+  padding: 4pt;
+  margin-top: 6pt;
+  margin-bottom: 12pt;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3pt;
+  border-color: rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 8px -1px rgba(0,0,0,0.2);
+  background-color: #575AC2;
+  color: white;
+}
+.comments-area .comment-form-comment {
+  margin-top: 6pt;
+  margin-bottom: 6pt;
+}
+.comments-area .comment-form-comment label {
+  padding-left: 2pt;
+  padding-bottom: 4pt;
+}
+.comments-area .comment-form-comment textarea {
+  box-shadow: 0px 2px 8px -1px rgba(0,0,0,0.2);
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  font-family: "Libre Baskerville", serif;
+
+}
+
+.content-pdf-container {
+  background-color: rgb(60,60,60);
+}
+.content-pdf {
+  width: 100%;
+  height: 680px;
+}
