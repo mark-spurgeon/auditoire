@@ -95,6 +95,36 @@ function auditoire_customize_register( $wp_customize ) {
 		'priority'   => 4
 	)));
 
+	/*
+		Google Analytics Settings
+	*/
+
+	$wp_customize->add_section( 'google_analytics' , array(
+		'title'      => __( 'Google Analytics', 'topolitik' ),
+		'priority'   => 150,
+	));
+	$wp_customize->add_setting( 'ga_code' , array(
+			'default'   => '',
+			'transport' => 'postMessage',
+	));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'ga_id', array(
+		'label'      => __( 'ID de suivi', 'topolitik' ),
+		'section'    => 'google_analytics',
+		'settings'   => 'ga_code',
+		'priority'   => 1
+	)));
+
+
+	$wp_customize->add_setting( 'hint_color' , array(
+		'default'   => 'red',
+		'transport' => 'postMessage',
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'hint_color', array(
+		'label'      => __( "Couleur de texte (index) ", 'topolitik' ),
+		'section'    => 'colors',
+		'settings'   => 'hint_color',
+		'priority'   => 1
+	)));
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -106,6 +136,11 @@ function auditoire_customize_register( $wp_customize ) {
 			'render_callback' => 'auditoire_customize_partial_blogdescription',
 		) );
 	}
+	
+	$wp_customize->remove_section( 'background_image' );
+	$wp_customize->remove_section( 'static_front_page' );
+	$wp_customize->remove_section( 'custom_css' );
+	$wp_customize->remove_section( 'header_image' );
 }
 add_action( 'customize_register', 'auditoire_customize_register' );
 

@@ -59,7 +59,7 @@
   opacity: 1;
 }
 .site-header-top-middle {
-  flex: 1;
+  flex: 2;
   border-style: solid;
   border-width: 0;
   border-left-width: 1px;
@@ -125,15 +125,39 @@
   flex-direction: column;
   justify-content: stretch;
 }
-
-.custom-logo-link {
+.site-header-logo-container {
   flex: 1;
   display: flex;
-  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 72pt;
 }
-.custom-logo-link img {
+
+.site-header-logo-image {
+  width: 72pt;
+}
+
+.site-header-logo-text {
   flex: 1;
-  width: 100%;
+  max-width: 256pt;
+  overflow: hidden;
+  transition: max-width .4s;
+}
+.site-header-logo-text-svg {
+  width: 244pt;
+  margin-left: 12pt;
+  margin-top: 12pt;
+}
+.site-header-logo-text.open {
+  max-width: 256pt;
+}
+.site-header-logo-text.closed {
+  max-width: 0pt;
+}
+.site-header-logo-container:hover .site-header-logo-text {
+  max-width: 256pt;
 }
 .site-description {
   flex: 1;
@@ -141,12 +165,13 @@
   text-align: center;
   margin: 0;
   padding: 12pt;
-  font-size: 12pt;
+  font-size: 10pt;
   line-height: 12pt;
-  letter-spacing: 0.04rem;
+  letter-spacing: 0.05rem;
   font-family: "Libre Baskerville", serif;
-  font-style: italic;
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 800;
+  max-height: 24pt;
 }
 .site-description a {
   color: inherit;
@@ -172,20 +197,7 @@
   padding: 0;
   margin-top: 0;
 }
-.site-header-logo {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
-.site-header-logo img {
-  flex:0;
-  height: 20pt;
-  width: auto;
-  margin-left: 2pt;
-}
+
 .site-header.journal .site-header-links-social ul li {
   width: 28pt;
   font-size: 18pt;
@@ -198,13 +210,38 @@
   flex: 1;
   font-size: 10pt;
   line-height: 10pt;
-  background: rgb(87, 102, 238);
-  color: white;
+  color: rgb(87, 102, 238);
   border-radius: 4pt;
   margin: 4pt;
 }
 .site-header.journal .site-header-links-social ul li.site-header-download a {
   text-decoration: none;
+  text-align: right;
+}
+
+.site-small-header-logo-container {
+  flex:1;
+  min-width: 200pt;
+  display: flex; 
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  text-decoration: none;
+}
+.site-small-header-logo-image {
+  width: 32pt;
+  height: 30pt;
+}
+.site-small-header-logo-container h2 {
+  padding: 0;
+  margin: 0;
+  margin-left: 4pt;
+  margin-top: 4pt;
+  padding-left: 4pt;
+  padding-right: 4pt;
+  font-size: 14pt;
+  font-family: "HKGroteskBold";
+  color: black;
 }
 /*
  Categories
@@ -244,12 +281,12 @@
   border-style: solid;
   border-width: 0;
   border-top-width: 4px;
-  margin-left: 0px;
+  padding-bottom: 4px;
   text-align: center;
-  color: #575AC2;
+  color: black;
   background-color: white;
 
-  transition: background-color .2s;
+  transition: background-color .3s;
 }
 .site-header-categories ul li:nth-child(1) {
   margin-left: 0;
@@ -264,11 +301,11 @@
   font-weight: 600;
   font-style: normal;
   text-decoration: none;
-  color: inherit;
+  color: black;
 }
 
 .site-header-categories ul li:hover {
-  background: rgba(253,253,253);
+  background: rgba(250,250,250);
 }
 
 
@@ -301,14 +338,26 @@
     flex-direction: column;
     justify-content: center;
   }
-  .site-header-branding a {
-    flex-direction: column;
-    justify-content: center;
-    display: block;
+  .site-header-logo-container {
+    justify-content: left;
     max-height: 32pt;
     padding: 0;
     margin: 0;
     flex: 0;
+  }
+  .site-header-logo-image {
+    height: 32pt;
+    width: 30pt;
+  }
+  .site-header-logo-text {
+    height: 32pt;
+    width: 30pt;
+  }
+  .site-header-logo-text-svg {
+    height: 32pt;
+    width: 90pt;
+    margin-left: 2pt;
+    margin-top: 3pt;
   }
   .site-header-branding img {
     flex: 0;
@@ -327,7 +376,7 @@
     border-bottom-width: 3px;
   }
   .site-header-categories ul {
-    flex-direction: column;
+    display: none;
   }
   .site-header-categories ul li {
     height: auto;
@@ -342,6 +391,10 @@
     height:156pt;
     padding-bottom: 1pt;
     background-color: rgb(250,250,250);
+  }
+  .site-header-categories.menu ul {
+    display: flex;
+    flex-direction: column;
   }
 
   .site-header.journal .site-header-top-middle {

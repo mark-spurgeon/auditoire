@@ -13,7 +13,7 @@ get_header();
 	<div id="primary" class="container">
 		<main id="main" class="site-index-container">
 		<div class="site-index-margin">
-			<?php dynamic_sidebar( 'sidebar-1' ); ?>
+			<!-- <?php dynamic_sidebar( 'sidebar-1' ); ?> -->
 		</div>
 		<div class="site-index-content site-index-content-article">
 		<?php
@@ -31,7 +31,7 @@ get_header();
 		?>
 		</div>
 		<div class="site-index-sidebar">
-			<?php dynamic_sidebar( 'sidebar-2-post' ); ?>
+			<?php if (!is_page()) { dynamic_sidebar( 'sidebar-2-post' ); }; ?>
 		</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->

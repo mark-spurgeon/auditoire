@@ -14,7 +14,7 @@ get_header();
 		<main id="main" class="site-index-container">
 		<div class="site-index-margin">
 			<?php
-			$current_category_color = "#575AC2";
+			$current_category_color = get_theme_mod('hint_color', '#575AC2');
 			if (single_cat_title(null, false) != '' && function_exists('wp_get_terms_meta')) { 
 				$current_category_color = wp_get_terms_meta(get_cat_ID(single_cat_title(null, false)), 'category_color', true); 
 				//single_tag_title( '<h1 class="site-margin-header" style="color:'.$current_category_color.'">', '</h1>' );
@@ -39,6 +39,13 @@ get_header();
 			while ( have_posts() ) :
 				the_post();
 				get_template_part( 'template-parts/card', get_post_type() );
+
+				$count++;
+				if ($count == 4) : ?>
+					<div class="site-index-content-widget" style="color: <?php echo $current_category_color ?>"> 
+						<?php dynamic_sidebar( 'index-1' );  ?>
+					</div>
+				<?php endif;
 			endwhile;
 		the_posts_navigation();
 		else :
@@ -50,5 +57,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

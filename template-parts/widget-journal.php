@@ -9,8 +9,9 @@
 			$journaux->the_post(); 
 			$color = get_post_meta(get_the_ID(), 'journal_color', true);
 			?>
+			<div class="widget">
+				<h2 class="widget-title">Télécharger le dernier numéro</h2>
 			  <div class="card-journal-container" style="border-color: <?php echo $color ?>;">
-					<p class="card-journal-presenter" >Télecharger le dernier numéro</p>
 					<?php get_template_part('template-parts/card', get_post_type()); ?>
 					<ul>
 					  <?php 
@@ -23,6 +24,7 @@
 						<?php }; ?>
 					</ul>
 				</div>
+			</div>
 			<?php
 		};
 	};

@@ -128,6 +128,16 @@ function auditoire_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Index', 'auditoire' ),
+		'id'            => 'index-1',
+		'description'   => esc_html__( 'Add widgets here.', 'auditoire' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'auditoire_widgets_init' );
 
@@ -138,8 +148,10 @@ function auditoire_scripts() {
 	wp_enqueue_style( 'auditoire-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'auditoire-style-header', get_template_directory_uri().'/css/header.css' );
 	wp_enqueue_style( 'auditoire-style-content', get_template_directory_uri().'/css/content.css' );
+	wp_enqueue_style( 'auditoire-style-widgets', get_template_directory_uri().'/css/widgets.css' );
 
-	wp_enqueue_script( 'auditoire-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'auditoire-smoothstate', get_template_directory_uri() . '/js/jquery.smoothState.min.js', array('jquery'), '0.5.2', true );
+	wp_enqueue_script( 'auditoire-navigation', get_template_directory_uri() . '/js/main.js', array('jquery'), '20151215', true );
 
 	wp_enqueue_script( 'auditoire-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -170,6 +182,10 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Custom Post : JOURNAL
+ *  */
 
 function auditoire_custom_post_type() {
 
@@ -254,7 +270,6 @@ function journal_attachment_callback( $post ) {
 	?>
 	<div class="media-upload">
 		<object data="<?php echo $pdf_file; ?>" type="application/pdf" width="400" height="590">
-  		<p>Hello! Ya pas encore de journal ici</p>
 		</object>
     <table>
       <tr valign="top">

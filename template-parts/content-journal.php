@@ -4,8 +4,6 @@
   $pdf_file = wp_get_attachment_url($meta);  
 ?>
 <div class="content-pdf-container">
-  <div class="container">
-    <iframe class="content-pdf" src="<?php echo $pdf_file; ?>" frameborder="0">
-    </iframe>
-  </div>
+  <iframe class="content-pdf" src="<?php echo $pdf_file; ?>" frameborder="0">
+  </iframe>
 </div>

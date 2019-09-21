@@ -19,14 +19,17 @@ require get_template_directory() . '/template-parts/header-journal.php';
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation();
-
 
 		endwhile; // End of the loop.
 		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-<?php
-get_footer();
+	
+</div><!-- #content -->
+</div><!-- #page-journal -->
+<?php wp_footer(); ?>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/brands.css" integrity="sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX" crossorigin="anonymous">
+</body>
+</html>

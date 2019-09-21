@@ -4,11 +4,11 @@
     auditoire_post_thumbnail();
   ?>
   <div class="card-description">
-    <a href="<?php echo esc_url( get_permalink());?>">
+    <a href="<?php echo esc_url( get_permalink());?>" title="<?php the_title(null, false) ?>">
       <?php the_excerpt()?>
     </a>
   </div>
   <div class="card-info">
-    <?php auditoire_posted_on(); auditoire_posted_by(); ?>
+    <?php auditoire_posted_on(); echo ', par '; coauthors_posts_links(); ?>
   </div>
 </article>

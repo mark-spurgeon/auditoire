@@ -10,6 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				
 	<header class="content-header">
 		<?php
 		if ( is_singular() ) :
@@ -21,18 +22,27 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="content-meta">
-				<?php auditoire_posted_on(); auditoire_posted_by(); ?>
+				<?php auditoire_posted_on(); echo ', par '; coauthors_posts_links(); ?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
-	</header><!-- .entry-header -->
 
+		<?php 
+		$color = 'rgb(80, 80, 80)';
+		if (function_exists('wp_get_terms_meta')) { 
+			$color = wp_get_terms_meta(get_the_category()[0]->term_id, 'category_color', true);
+		}; 
+		?>
+	</header><!-- .entry-header -->
+	<div class="content-color-hint" style="border-top-color: <?php echo $color; ?>">
+
+	</div>
 	<?php auditoire_post_thumbnail(); ?>
 
 	<div class="content-body">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<!-- <?php auditoire_entry_footer(); ?> -->
-	</footer><!-- .entry-footer -->
+	<div class="content-footer">
+		<?php auditoire_entry_footer(); ?>
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -875,7 +875,7 @@ object {
 	border-style: solid;
 	border-width: 0;
 	border-right-width: 1px;
-	border-color: rgba(40,40,40,0.02)
+	border-color: rgba(240, 240, 240)
 }
 .site-index-margin h1 {
 	font-family: "HKGroteskBold";
@@ -911,10 +911,10 @@ object {
 	min-width: 280px;
 	max-width: 380px;
 	position: relative;
-
-	margin-bottom: 6pt;
-	padding-left: 6pt;
-	padding-right: 6pt;
+	padding-top: 0;
+	padding-bottom: 18pt;
+	padding-left: 10pt;
+	padding-right: 10pt;
 	border-style: solid;
 	border-width: 0;
 	border-left-width: 1px;
@@ -968,10 +968,14 @@ object {
 	display: block;
 	position: relative;
 	height: 460px;
-	border-radius: 4px;
 	margin-left: 6pt;
 	flex-basis: 32%;
 	max-width: 32%;
+
+	border-style: solid;
+	border-width: 1px !important;
+	border-color: rgb(220,220,220) !important;
+	border-radius: 4px;
 
 	background-size: cover;
 	background-position: center;
@@ -982,6 +986,14 @@ object {
 
 }
 
+.card-journal-background-link {
+	background: rgba(0,0,0,0.02);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
 .card-journal-text-box {
 	background: linear-gradient(transparent, rgba(30, 30, 30, 0.6));
 	position: absolute;
@@ -1045,7 +1057,7 @@ object {
 }
 
 .site-index-margin .card-journal-container {
-	padding-top: 6pt;
+	padding-top: 12pt;
 	padding-bottom: 8pt;
 	border-style: solid;
 	border-width: 0;
@@ -1060,8 +1072,8 @@ object {
 	color: black;
 }
 .site-index-margin .card-journal {
-	min-width: 220px;
-	height: 300px;
+	min-width: 230px;
+	height: 320px;
 	margin: 0 auto;
 	margin-bottom: 10pt;
 	padding: 0;
@@ -1073,6 +1085,10 @@ object {
 .site-index-margin .card-journal .card-journal-description {
 	font-size: 9pt;
 	color: white;
+}
+.site-index-margin .card-journal .card-journal-description * {font-size: inherit;}
+.site-index-margin .card-journal .card-journal-headline {
+	margin: 0 !important;
 }
 .site-index-margin .card-journal-container ul {
 	margin: 0;
@@ -1102,11 +1118,30 @@ object {
 .site-index-sidebar {
 	flex: 1;
 }
-.site-index-margin .widget h2 {
-	padding-left:0;
+
+
+.site-index-navigation {
+	width: 100%;
+	max-width: 500px;
+	margin: 0pt auto;
+	padding: 18pt;
+	border-style: solid;
+	border-width: 0;
+	border-top-width: 1px;
+	border-color: rgb(240,240,240);
 }
-.site-index-margin .widget p {
-	font-size: 12pt;
+
+.site-index-navigation a {
+	background-color: rgb(100,90, 235);
+	color: white;
+	text-decoration: none;
+	font-family: "HKGroteskBold";
+	font-size: 10pt;
+	padding: 6pt;
+	padding-left: 12pt;
+	padding-right: 12pt;
+	border-radius: 18pt;
+	letter-spacing: 0.08rem;
 }
 
 @media screen and (max-width: 940px) {
@@ -1126,6 +1161,13 @@ object {
 	}
 	.card {
 		border-width: 0;
+	}
+	.card-journal {
+		margin-right: 6pt;
+	}
+	.site-index-navigation a {
+		font-size: 9pt;
+		letter-spacing: 0;
 	}
 }
 
@@ -1179,61 +1221,6 @@ object {
 	border-color: rgba(40,40,40,0.09)
 }
 
-.widget {
-	/* Make sure select elements fit in widgets. */
-}
-
-.widget select {
-	max-width: 100%;
-}
-
-.widget h2 {
-	font-family: "HKGroteskBold";
-	font-size: 15pt;
-	line-height: 15pt;
-	padding: 0;
-	margin: 0;
-	padding-left: 4pt;
-	padding-top: 6pt;
-	padding-bottom: 4pt;
-}
-
-.widget ul {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-}
-.widget ul li {
-	color: #575AC2;
-	padding-left: 4pt;
-	padding-bottom: 2pt;
-	font-size: 12pt;
-	font-family: "Libre Baskerville";
-	font-weight: 400;
-}
-.widget ul li a {
-	color: inherit;
-	text-decoration: none;
-}
-.widget ul li a:hover {
-	text-decoration: underline;
-	color: 
-}
-
-.site-footer-widgets .widget {
-	flex: 1; 
-	border-style: solid;
-	border-width: 0;
-	border-top-width: 1px;
-	border-left-width: 1px;
-	border-color: rgba(40,40,40,0.09);
-
-	margin-top: 12pt;
-	padding-bottom: 12pt;
-}
-.site-footer-widgets .widget:nth-child(1) {
-	border-left-width: 0;
-}
 
 
 .error404 .site-content {
@@ -1262,3 +1249,4 @@ object {
 .error-404 p {
 	font-family: "Libre Baskerville";
 }
+
