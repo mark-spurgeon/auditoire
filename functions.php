@@ -212,19 +212,21 @@ function auditoire_custom_post_type() {
 	// On peut définir ici d'autres options pour notre custom post type
 	
 	$args = array(
-		'label'               => __( 'Journal'),
-		'description'         => __( 'Découvrez les derniers numéros du journal imprimé'),
 		'labels'              => $labels,
 		// On définit les options disponibles dans l'éditeur de notre custom post type ( un titre, un auteur...)
-		'supports'            => array( 'title', 'excerpt', 'thumbnail', 'revisions', ),
+		'supports'            => array( 'title', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
 		/* 
 		* Différentes options supplémentaires
 		*/
 		'show_in_rest'        => true,
+		'rest_base'           => 'journal',
+		'map_meta_cap'        => true,
+		'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'hierarchical'        => false,
 		'public'              => true,
 		'has_archive'         => true,
 		'rewrite'			  => array( 'slug' => 'journaux'),
+		'menu_position'       => 5,
 
 	);
 	
@@ -234,12 +236,41 @@ function auditoire_custom_post_type() {
 }
 add_action( 'init', 'auditoire_custom_post_type', 0 );
 
+
+function auditoire_post_type_args( $args, $post_type ) {
+    if ( 'journal' === $post_type ) {
+        $args['show_in_rest'] = true;
+        // Optionally customize the rest_base or rest_controller_class
+        $args['rest_base']             = 'journal';
+				$args['rest_controller_class'] = 'WP_REST_Posts_Controller';
+				$args['map_meta_cap']          = true;
+	}
+	return $args;
+}
+add_filter( 'register_post_type_args', 'auditoire_post_type_args', 10, 2 );
+
 function add_custom_meta_boxes() {  
 	add_meta_box('journal_date', 'Date de publication', 'journal_date_callback', 'journal', 'normal', 'high');  
 	add_meta_box('journal_attachment', 'Journal PDF', 'journal_attachment_callback', 'journal', 'normal', 'high'); 
 	add_meta_box('journal_color', 'Couleur du poste', 'journal_color_callback', 'journal', 'normal', 'high');   
 }
 add_action('add_meta_boxes', 'add_custom_meta_boxes');  
+
+function auditoire_register_meta_api() {
+	$args = array(
+    'type' => 'string',
+    'single' => true,
+    'show_in_rest' => true,
+	);
+	register_meta( 'post', 'journal_date', $args);
+	register_meta( 'post', 'journal_attachment', $args);
+	register_meta( 'post', 'journal_color', $args);
+	register_meta( 'journal', 'journal_date', $args);
+	register_meta( 'journal', 'journal_attachment', $args);
+	register_meta( 'journal', 'journal_color', $args);
+
+}
+add_action( 'rest_api_init', 'auditoire_register_meta_api' );
 
 function journal_date_callback( $post ) {  
 	wp_nonce_field(plugin_basename(__FILE__), 'journal_date_nonce');
@@ -269,7 +300,7 @@ function journal_attachment_callback( $post ) {
 	}
 	?>
 	<div class="media-upload">
-		<object data="<?php echo $pdf_file; ?>" type="application/pdf" width="400" height="590">
+		<object id="journal_pdf_file" data="<?php echo $pdf_file; ?>" type="application/pdf" width="400" height="590">
 		</object>
     <table>
       <tr valign="top">
@@ -285,12 +316,13 @@ function journal_attachment_callback( $post ) {
 	<script>
 		function openMedia() {
 			metaImageFrame = wp.media.frames.metaImageFrame = wp.media({
-				title: 'hey',
-				button: { text:  'Use this file' },
+				title: 'Journal PDF',
+				button: { text:  'Envoyer le PDF' },
 				});
 			metaImageFrame.on('select', function() {
 				var media_attachment = metaImageFrame.state().get('selection').first().toJSON();
 				console.log(media_attachment);
+				document.getElementById('journal_pdf_file').data = media_attachment.url;
 				document.getElementById('journal_attachment_input').value = media_attachment.id;
 			})
 			metaImageFrame.open();

@@ -20,9 +20,9 @@
 		<div class="site-footer-foot">
 			<div class="container">
 				<p><?php echo '<span class="site-footer-blogname">'.get_bloginfo( 'title' ).'</span>. '.get_bloginfo( 'description', 'display' ); ?></p>
-				<p style="font-size: 10pt;">© 2019 - <?php echo date('Y') ?> L'auditoire.</p>
-				<p style="font-size: 10pt; opacity: 0.4;">Admin : <a href="<?php echo admin_url() ?>">connexion</a>.</p>
-
+				<p style="font-size: 10pt;">Copyright © 2019 - <?php echo date('Y') ?> L'auditoire.</p>
+				<p style="font-size: 9pt; opacity: 0.4;">Admin : <a href="<?php echo admin_url() ?>">connexion</a>.</p>
+				<p style="font-size: 9pt; opacity: 0.8;">Réalisation du site par <a href="https://github.com/the-duck" target="_blank">Mark Spurgeon</a></p>
 			</div>
 		</div>
 	</footer><!-- #colophon -->
