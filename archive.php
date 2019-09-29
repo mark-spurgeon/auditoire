@@ -39,13 +39,6 @@ get_header();
 			while ( have_posts() ) :
 				the_post();
 				get_template_part( 'template-parts/card', get_post_type() );
-
-				$count++;
-				if ($count == 4) : ?>
-					<div class="site-index-content-widget" style="color: <?php echo $current_category_color ?>"> 
-						<?php dynamic_sidebar( 'index-1' );  ?>
-					</div>
-				<?php endif;
 			endwhile;
 		the_posts_navigation();
 		else :

@@ -65,7 +65,7 @@
 .widget form input {
   font-family: "Libre Baskerville";
   font-size: 10pt;
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(252,252,252);
   color: black;
   padding-left: 12pt;
   padding-right: 12pt;
@@ -81,7 +81,6 @@
 }
 .widget form input:focus {
   border-color: rgba(40, 40, 40, 0.2);
-  background-color: rgba(255,255,255,0.15);
   outline: none;
 }
 
@@ -92,7 +91,7 @@
   resize: vertical;
   font-family: "Libre Baskerville";
   font-size: 10pt;
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(252,252,252);
   color: black;
   margin: 0;
   padding-left: 12pt;
@@ -109,7 +108,6 @@
 }
 .widget textarea:focus {
   border-color: rgba(40, 40, 40, 0.2);
-  background-color: rgba(255,255,255,0.15);
   outline: none;
 }
 .widget input[type="submit"] {
@@ -122,7 +120,6 @@
   color: inherit;
   border-color: inherit;
   width: auto;
-  margin-left: 12pt;
   margin-top: 6pt;
   padding-top: 5pt;
   padding-bottom: 6pt;
@@ -146,7 +143,7 @@
   font-family: bolder;
   padding: 0;
   margin: 0;
-  margin-left: 12pt !important;
+  margin-left: 12pt;
 }
 
 .widget form p {
